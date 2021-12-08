@@ -82,10 +82,7 @@ fclose($fp);
         const humenArray = <?= json_encode($humenname) ?>;
         const umaArray = <?= json_encode($horcename) ?>;
         const reasonArray = <?= json_encode($reasontxt) ?>;
-
-        //console.log(totalArray);
         /////////////グラフ作成////////////
-        //console.log(count7);
         let count0 = umaArray.filter(function(x) {
             return x === 'セントライト'
         }).length;
@@ -152,6 +149,7 @@ fclose($fp);
             },
         ];
         var myChart = new Chart(document.getElementById("mycanvas").getContext("2d")).Doughnut(data);
+        /////////////画面読み込み時、カードの内容表示////////////
         window.onload = function() {
             var w = Math.floor(Math.random() * humenArray.length);
             $("#humenname").html(humenArray[w] + "が選んだ最強3冠馬は…");
@@ -177,6 +175,7 @@ fclose($fp);
                 alert("エラー");
             }
         };
+        /////////////ボタンクリック時、カードの内容表示////////////
         $("#click").on("click", function() {
             var a = Math.floor(Math.random() * humenArray.length);
             $("#humenname").html(humenArray[a] + "が選んだ最強3冠馬は…");
